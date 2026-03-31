@@ -212,6 +212,12 @@ product_catalogue = {
 
 # Write your code below:
 
+prd_code = input("provide a product code: ").upper().strip()
+if prd_code in product_catalogue:
+    print(f"The product code is {prd_code}, its price is {product_catalogue[prd_code]:.2f}")
+else:
+    print("Error: Product code not found.")
+
 
 # -------------------------------------------
 # CHECKPOINT
