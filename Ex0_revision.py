@@ -116,20 +116,20 @@ print("\n-------------------------------------------\n"
 #
 # HINT: You may need to use a single `try` block that covers both `int()` conversions.
 
-def calculate_area():
-    try:
-    # Remember to handle the input() and int() conversions inside the try block
-        length = int(input("Enter rectangle length: "))
-        width = int(input("Enter rectangle width: "))
-        area = length * width
-        return area
-    except ValueError:
-        print("Error: Please enter only numerical values.")
-        return 0
+# def calculate_area():
+#     try:
+#     # Remember to handle the input() and int() conversions inside the try block
+#         length = int(input("Enter rectangle length: "))
+#         width = int(input("Enter rectangle width: "))
+#         area = length * width
+#         return area
+#     except ValueError:
+#         print("Error: Please enter only numerical values.")
+#         return 0
 
-# Call the function:
-rectangle_area = calculate_area()
-print(f"Calculated Area: {rectangle_area}")
+# # Call the function:
+# rectangle_area = calculate_area()
+# print(f"Calculated Area: {rectangle_area}")
 
 
 # -------------------------------------------
@@ -167,7 +167,11 @@ weekly_sales = [120.50, 155.75, 95.00, 180.25, 130.50]
 # 5. Print both the 'total_sales' and 'average_sale', formatted to two decimal places.
 
 # Write your code below:
-
+total_sales = 0
+for sale in weekly_sales:
+    total_sales += sale
+average_sale = total_sales / len(weekly_sales)
+print(f"Total sales are {total_sales:.2f}, and the average sale is {average_sale:.2f}")
 
 # -------------------------------------------
 # CHECKPOINT
