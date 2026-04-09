@@ -37,6 +37,10 @@ print("-------------------------------------------\n"
 # 4. Print the final 'total_cost' using an f-string, formatted to two decimal places.
 
 # Write your code below:
+price = 45.00
+VAT_RATE = 0.20
+total_cost = round(price + price * VAT_RATE, 2)
+print(f"The total cost of the product is {total_cost}.")
 
 
 # -------------------------------------------
@@ -70,6 +74,13 @@ print("\n-------------------------------------------\n"
 # 5. Otherwise (if total_cost is 60 or more), print "Purchase denied: Budget severely exceeded."
 
 # Write your code below:
+# budget = 50
+# if total_cost <= budget:
+#     print("Purchase approved: Within budget.")
+# elif total_cost > budget and total_cost < 60:
+#     print("Warning: Purchase exceeds budget but is manageable.")
+# else:
+#     print("Purchase denied: Budget severely exceeded.")
 
 
 # -------------------------------------------
@@ -105,18 +116,20 @@ print("\n-------------------------------------------\n"
 #
 # HINT: You may need to use a single `try` block that covers both `int()` conversions.
 
-def calculate_area():
-    # Insert try/except block here
-    # Remember to handle the input() and int() conversions inside the try block
-    length = int(input("Enter rectangle length: "))
-    width = int(input("Enter rectangle width: "))
-    area = length * width
-    return area
-    # Insert except block here
+# def calculate_area():
+#     try:
+#     # Remember to handle the input() and int() conversions inside the try block
+#         length = int(input("Enter rectangle length: "))
+#         width = int(input("Enter rectangle width: "))
+#         area = length * width
+#         return area
+#     except ValueError:
+#         print("Error: Please enter only numerical values.")
+#         return 0
 
-# Call the function:
-rectangle_area = calculate_area()
-print(f"Calculated Area: {rectangle_area}")
+# # Call the function:
+# rectangle_area = calculate_area()
+# print(f"Calculated Area: {rectangle_area}")
 
 
 # -------------------------------------------
@@ -155,6 +168,9 @@ weekly_sales = [120.50, 155.75, 95.00, 180.25, 130.50]
 
 # Write your code below:
 
+total_sales = sum(weekly_sales)
+average_sale = total_sales / len(weekly_sales)
+print(f"Total sales are {total_sales:.2f}, and the average sale is {average_sale:.2f}")
 
 # -------------------------------------------
 # CHECKPOINT
@@ -194,6 +210,18 @@ product_catalogue = {
 # 4. If the code does not exist, print "Error: Product code not found."
 
 # Write your code below:
+
+# prd_code = input("provide a product code: ").upper().strip()
+# if prd_code in product_catalogue:
+#     print(f"The product code is {prd_code}, its price is {product_catalogue[prd_code]:.2f}")
+# else:
+#     print("Error: Product code not found.")
+
+# prd_code = input("provide a product code: ").upper().strip()
+# try:
+#     print(f"The product code is {prd_code}, its price is {product_catalogue[prd_code]:.2f}")
+# except KeyError:
+#     print("Error: Product code not found.")
 
 
 # -------------------------------------------
@@ -245,6 +273,15 @@ print("\n-------------------------------------------\n"
 
 # Write your code below:
 
+# secret_colour = "BLUE"
+# while True:
+#     guess = input (("Guess the colour. ")).upper().strip()
+#     if guess == secret_colour:
+#         print("Your guess is correct.")
+#         break
+#     else:
+#         print("Wrong.Try again.")
+
 
 # -------------------------------------------
 
@@ -268,7 +305,10 @@ data_set = [3, 12, 5, 8, 17, 24, 9, 10]
 even_numbers = []
 
 # Write your code below:
-
+for data in data_set:
+    if data % 2 == 0:
+        even_numbers.append(data)
+print(even_numbers)
 
 # -------------------------------------------
 # ADVANCED ACTIVITY: Combining Concepts
@@ -290,6 +330,10 @@ def process_order(order_dict, catalogue):
     grand_total = 0
     print("--- Processing Order ---")
     # Insert code to loop through the order and calculate the total here
+    for order, quantity in order_dict.items():
+        if order in catalogue:
+            subtotal = quantity * catalogue[order]
+            grand_total += subtotal
     return grand_total
 
 # Test the function:
@@ -301,7 +345,8 @@ user_order = {
 
 # Call the function and print the final bill (formatted to two decimal places):
 # Write your code below:
-
+total = process_order(user_order, product_catalogue)
+print(total)
 
 # -------------------------------------------
 # FINAL CHECKPOINT
